@@ -22,7 +22,7 @@
 	"vuejs",
 	"vue",
     "vue-router",
-	"v-route-helper",
+	"v-route-helper"
   ],
   "bugs": {
     "url": "https://github.com/73CN0109y-Packages/VRouteHelper/issues"
