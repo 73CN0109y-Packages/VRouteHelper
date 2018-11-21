@@ -1,6 +1,6 @@
 {
   "name": "v-route-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "author": "73CN0109y <73cn0109y@gmail.com>",
   "license": "MIT",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-	"url": "git+https://github.com/73CN0109y-Packages/VRouteHelper.git"
+    "url": "git+https://github.com/73CN0109y-Packages/VRouteHelper.git"
   },
   "keywords": [
     "routing",
-	"vuejs",
-	"vue",
+    "vuejs",
+    "vue",
     "vue-router",
-	"v-route-helper"
+    "v-route-helper"
   ],
   "bugs": {
     "url": "https://github.com/73CN0109y-Packages/VRouteHelper/issues"
