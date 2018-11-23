@@ -62,7 +62,7 @@ Group some routes together
 ```js
 Route('/settings', SettingsComponent).group(() => [
     Route('account', SettingsAccount),
-    Route('billing', SettingsBilling)
+    Route('billing', SettingsBilling),
 ]);
 
 // Output
@@ -85,9 +85,9 @@ Route('/settings', SettingsComponent).group(() => [
 #### group(prefix, callback)
 Group some routes together and get all of the routes a prefix
 ```js
-Route(SettingsComponent).group('settings', () => {
-    Route('account', SettingsAccount)
-});
+Route(SettingsComponent).group('settings', () => [
+    Route('account', SettingsAccount),
+]);
 
 // Output
 {
@@ -186,7 +186,7 @@ Route('/old_home', OldHomeComponent)
 You can also specify the name of another route
 ```js
 Route('/settings', SettingsComponent).group(() => [
-    Route('account', SettingsAccount).name('account')
+    Route('account', SettingsAccount).name('account'),
 ]).name('settings');
 Route('/old_settings', OldSettingsComponent)
     .redirect('settings.account');
