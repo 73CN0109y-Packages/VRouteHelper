@@ -95,7 +95,7 @@ Route(SettingsComponent).group('settings', () => [
     component: SettingsComponent,
     children: {
         {
-            path: 'account',
+            path: 'settings/account',
             component: SettingsAccount
         }
     }
