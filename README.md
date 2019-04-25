@@ -7,9 +7,9 @@ I really like how easy it is to specify routes in Laravel so I made this package
 **Thank you for using my package :)**
 
 ## Table of Contents
-- [Quick Example](#QuickExample)
-- [Helpers](#Helpers)
-- [Methods](#Methods)
+- [Quick Example](#quick-example)
+- [Helpers](#helpers)
+- [Methods](#methods)
   - [Name](#namename)
   - [Group](#groupcallback)
   - [Meta](#metavalue)
