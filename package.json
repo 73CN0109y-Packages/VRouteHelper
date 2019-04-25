@@ -30,6 +30,6 @@
   "homepage": "https://github.com/73CN0109y-Packages/VRouteHelper#readme",
   "devDependencies": {
     "cross-env": "^5.2.0",
-    "laravel-mix": "^2.1.14"
+    "laravel-mix": "^4.0.15"
   }
 }
