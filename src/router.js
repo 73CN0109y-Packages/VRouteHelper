@@ -2,7 +2,7 @@ let RouterInstance;
 
 export default class Router {
     constructor() {
-        this._routes               = [];
+        this._routes = [];
         this._formattedRoutesCache = undefined;
     }
 

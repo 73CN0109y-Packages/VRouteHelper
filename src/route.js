@@ -2,22 +2,22 @@ export default class Route {
     constructor(_path = null, _component = null) {
         if (typeof _path !== 'string') {
             _component = _path;
-            _path      = null;
+            _path = null;
         }
 
-        this.__path      = (_path || '').trim();
+        this.__path = (_path || '').trim();
         this.__component = _component;
 
-        this.__name        = undefined;
-        this.__redirect    = undefined;
-        this.__alias       = undefined;
+        this.__name = undefined;
+        this.__redirect = undefined;
+        this.__alias = undefined;
         this.__beforeEnter = undefined;
-        this.__children    = [];
-        this.__meta        = {};
-        this.__props       = {};
+        this.__children = [];
+        this.__meta = {};
+        this.__props = {};
 
-        this.__prefix        = undefined;
-        this.__parent        = undefined;
+        this.__prefix = undefined;
+        this.__parent = undefined;
         this.__groupCallback = undefined;
     }
 
@@ -104,7 +104,7 @@ export default class Route {
     group(_prefix, _callback) {
         if (typeof _prefix === 'function') {
             _callback = _prefix;
-            _prefix   = null;
+            _prefix = null;
         }
 
         /**
@@ -124,16 +124,16 @@ export default class Route {
      */
     format() {
         return {
-            path       : this._path,
-            component  : this._component,
-            name       : this._name,
-            children   : this._children,
-            meta       : this._meta,
-            props      : this._props,
-            redirect   : this._redirect,
-            alias      : this._alias,
+            path: this._path,
+            component: this._component,
+            name: this._name,
+            children: this._children,
+            meta: this._meta,
+            props: this._props,
+            redirect: this._redirect,
+            alias: this._alias,
             beforeEnter: this._beforeEnter,
-            _parent    : this.__parent,
+            _parent: this.__parent,
         };
     }
 

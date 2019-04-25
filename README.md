@@ -2,14 +2,13 @@
 
 I really like how easy it is to specify routes in Laravel so I made this package to add that kind of syntax for vue-router.
 
-I've tried to support everything that vue-router normally has (although I may have missed out on some things).
+**Any feedback would be greatfully appreciated.**
 
-There is an example in the examples folder.
-
-**Note: This is still under development**
+**Thank you for using my package :)**
 
 ## Table of Contents
-- [Basic](#Basics)
+- [Quick Example](#QuickExample)
+- [Helpers](#Helpers)
 - [Methods](#Methods)
   - [Name](#namename)
   - [Group](#groupcallback)
@@ -18,18 +17,100 @@ There is an example in the examples folder.
   - [Alias](#aliasalias)
   - [BeforeEnter](#beforeentercallback)
 
-## Basics
-Here is a basic example of how this works.
+## Quick Example
+Here is a quick and simple example of how you can use this.
+I've provided a simple & complete example in the examples folder in the repo if you'd like to have a look [here](https://github.com/73CN0109y-Packages/VRouteHelper/tree/master/example).
 ```js
-// Instead of your route being this;
-{
-    path: '/home',
-    component: HomeComponent,
-    name: 'home'
-}
+// -------------
+// |   app.js  |
+// -------------
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VRouteHelper from 'v-route-helper';
+import routes from './routes';
 
-// You can do it like this;
-Route('/home', HomeComponent).name('home')
+Vue.use(VueRouter);
+
+const router = new VueRouter();
+
+Vue.use(VRouteHelper, {
+    router,
+    routes,
+});
+
+const app = new Vue({
+    router,
+}).$mount('#app');
+
+// -------------
+// | routes.js |
+// -------------
+import { Route } from 'v-route-helper';
+
+import WelcomePage from './views/Welcome';
+import AuthLayout from './views/layouts/Auth';
+import LoginPage from './views/auth/Login';
+import RegisterPage from './views/auth/register';
+
+export default [
+    Route('', WelcomePage).name('welcome'),
+    
+    Route('/auth', AuthLayout).group(() => [
+        Route('login', LoginPage).name('login'),
+        Route('register', RegisterPage).name('register')
+    ]).name('auth')
+];
+```
+
+## Helpers
+I've implemented a few functions that might help. Or not help... depends how you want to look at it.
+
+### $resolveRouteName(name)
+You can use this to lookup a route by it's name.
+
+```js
+// This will return the full route object
+// Note: Simplified for... simplicity
+// Returns: { name: 'settings.account', path: 'account', children: [...] }
+this.$resolveRouteName('settings.account');
+
+// This will return just the path
+// Returns: account
+this.$resolveRouteName('settings.account', 'path');
+
+// This will return the full path
+// Returns: /settings/account
+this.$resolveRouteName('settings.account', 'fullpath');
+```
+
+### $findAllRoutes(criteria)
+Pretty straight forward... This will simply return all routes.
+You can also use a criteria to search for routes.
+
+I can't remember why I implemented this but all I can hope for is that someone will find a use for it...
+
+Note: You can't utilize the `fullpath` here. That only works for the above $resolveRouteName function. :(
+
+```js
+// Returns all routes
+this.$findAllRoutes();
+
+// Returns all routes that contains 'settings' in it's name, path, alias or redirect
+this.$findAllRoutes('settings');
+
+// You can also use an object if that's your kind of thing
+this.$findAllRoutes({ name: 'settings' });
+```
+
+### $findRoute(criteria)
+The same as $findAllRoutes but it just returns the first route that matches the criteria.
+
+```js
+// Returns the first route that contains 'account'
+this.$findRoute('account');
+
+// Just like above, you can use an object
+this.$findRoute({ name: 'account' });
 ```
 
 ## Methods

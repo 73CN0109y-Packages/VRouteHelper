@@ -130,7 +130,7 @@ var VRouteHelper = {
                     if (route._path.endsWith('/') || path.startsWith('/')) path = route._path + path;else path = route._path + '/' + path;
                 }
 
-                return path;
+                return (path.startsWith('/') ? '' : '/') + path;
             }
 
             return key !== undefined && key !== null ? route[key] : route;

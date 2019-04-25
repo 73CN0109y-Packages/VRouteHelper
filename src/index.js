@@ -9,10 +9,10 @@ const VRouteHelper = {
 
         if (process.env.NODE_ENV === 'development') {
             Vue.prototype._vRouteHelper = {
-                routes   : _Router.routes,
+                routes: _Router.routes,
                 rawRoutes: _Router.instance._routes,
                 get flatRouteMap() {
-                    return _Router.getFlatRouteMap()
+                    return _Router.getFlatRouteMap();
                 },
             };
         }
@@ -58,7 +58,7 @@ const VRouteHelper = {
          */
         function findAllRoutes(values, routes = null) {
             if (!values) return (routes || _Router.routes);
-            if (typeof values !== 'object') values = [ values ];
+            if (!Array.isArray(values)) values = [ values ];
 
             let matches = [];
 
@@ -104,8 +104,8 @@ const VRouteHelper = {
         }
 
         Vue.prototype.$resolveRouteName = resolveRouteName;
-        Vue.prototype.$findAllRoutes    = findAllRoutes;
-        Vue.prototype.$findRoute        = findRoute;
+        Vue.prototype.$findAllRoutes = findAllRoutes;
+        Vue.prototype.$findRoute = findRoute;
     },
 };
 
