@@ -10,7 +10,6 @@ type PluginOptions = {
 
 const VRouteHelper = {
 	install(app:App, {router, routes}: PluginOptions) {
-		console.log(router, routes);
 
 		_Router.addRoutes(routes);
 
