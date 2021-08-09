@@ -8,7 +8,6 @@ const route_1 = tslib_1.__importDefault(require("./route"));
 Object.defineProperty(exports, "_Route", { enumerable: true, get: function () { return route_1.default; } });
 const VRouteHelper = {
     install(app, { router, routes }) {
-        console.log(router, routes);
         router_1.default.addRoutes(routes);
         router_1.default.routes.forEach(route => router.addRoute(route));
         if (process.env.NODE_ENV === 'development') {
